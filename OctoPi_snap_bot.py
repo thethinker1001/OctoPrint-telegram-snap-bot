@@ -13,10 +13,8 @@ token = "TOKEN" # PUT telegram bot token you recived from @BotFather
 
 
 def snap(): # Saving picture in folder called images.jpg
-    file = open("image.jpg", 'wb')
-    file.write(get("http://{}/webcam/?action=snapshot".format(octoprint_ip)).content)
-    file.close()
-
+    with open('image.jpg', 'wb') as file:
+        file.write(get("http://{}/webcam/?action=snapshot".format(octoprint_ip)).content)
 
 @bot(command='start') # Response for /start command
 def start(update):
