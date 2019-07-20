@@ -1,13 +1,10 @@
 # OctoPrint-Telgram-snapshot-bot
-*Simple telegram-bot using python with requests libary and telegram easy libary,
+*Simple telegram-bot using python with telegram easy libary,
 very short and effective code.*
 
 *For running this please install
 requests libary and telepy libary :*
 
-```
-pip install requests
-```
 ```
 pip install telepy
 ```
