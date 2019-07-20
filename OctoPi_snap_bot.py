@@ -5,7 +5,7 @@
 
 
 from Tele import * # pip install telepy
-from requests import get # pip install requests
+from requests import get 
 
 
 octoprint_ip = "IP" # Put OctoPrint ip adress here. * NOTE: if you run this program in the board that octoprint run on so the ip should be 127.0.0.1
