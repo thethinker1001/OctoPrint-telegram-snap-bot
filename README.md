@@ -2,9 +2,8 @@
 *Simple telegram-bot using python with telegram easy libary,
 very short and effective code.*
 
-*For running this please install
-requests libary and telepy libary :*
 
+<h3>requirements</h3>
 ```
 pip install telepy
 ```
