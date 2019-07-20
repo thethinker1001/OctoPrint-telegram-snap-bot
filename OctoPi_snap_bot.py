@@ -1,33 +1,40 @@
 ## Simple bot that sending pictures online from octoprint to telegram bot with refresh button !
-## For make it happen you only need to -
-## Install requests libary, install telepy libary, change ip string, change token string. 
-## Created by www.github.com/thethinker1001 ##
+# For make it happen you only need to -
+# Install requests libary, install telepy libary, change ip string, change token string. 
+# Created by www.github.com/thethinker1001 
 
-
-from Tele import * # pip install telepy
+# pip install telepy
+from Tele import *
 from requests import get 
 
+# Put OctoPrint ip adress here. * NOTE: if you run this program in the board that octoprint run on so the ip should be 127.0.0.1
+octoprint_ip = "IP" 
 
-octoprint_ip = "IP" # Put OctoPrint ip adress here. * NOTE: if you run this program in the board that octoprint run on so the ip should be 127.0.0.1
-token = "TOKEN" # PUT telegram bot token you recived from @BotFather 
+# PUT telegram bot token you recived from @BotFather 
+token = "TOKEN" 
 
 
-def snap(): # Saving picture in folder called images.jpg
+# Saving picture in folder called images.jpg
+def snap(): 
     with open('image.jpg', 'wb') as file:
         file.write(get("http://{}/webcam/?action=snapshot".format(octoprint_ip)).content)
 
-@bot(command='start') # Response for /start command
+# Response for /start command
+@bot(command='start') 
 def start(update):
     snap()
     sendPhoto(update.chat.id, file='image.jpg',reply_markup=inline_keyboard([[{'refresh': 1}]]))
-        
-@bot(callback_query="1") # Response for button clicked
+     
+# Response for button clicked
+@bot(callback_query="1") 
 def refresh(update):
     snap()
     edit_message_media(media=input_media_photo('image.jpg'), update=update, reply_markup=inline_keyboard([[{'refresh': 1}]]))
 
+    
 account(token) 
-bot_run() # If you want threads for response for many users at the same time you can add [ example : bot_run(multi=True) ]
+# If you want threads for response for many users at the same time you can add [ example : bot_run(multi=True) ]
+bot_run() 
 
 
 
