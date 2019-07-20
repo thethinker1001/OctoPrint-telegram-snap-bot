@@ -11,7 +11,7 @@ pip install telepy
 <h3>Source code</h3>
 
 ```
-git clone
+git clone https://github.com/thethinker1001/OctoPrint-telegram-snap-bot.git
 ```
 
 Then you only need to **put in the code Your OctoPrint IP-adress 
